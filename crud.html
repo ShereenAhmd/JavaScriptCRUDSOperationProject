@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8" >
+        <meta name="crud" content="" >
+        <title>CRUDS|sh</title>
+        <style>
+            *{
+                padding: 0;
+                margin: 0;
+            }
+            body{
+                color: aliceblue;
+                height: 100vh;
+                
+                background: linear-gradient(rgb(6, 6, 6),rgb(9, 9, 9));
+            }
+            .crud{
+                width: 80%;
+                
+                margin: auto;
+                
+            }
+            .head{
+                text-align: center;
+                font-size: 40px;
+                letter-spacing: 2px;
+                margin: 40px 0;
+                
+            }
+            .head h2::first-letter{
+                color: rgb(105, 7, 7);
+                font-size: 70px;
+            }
+            
+             input{
+                font-size: 20px;
+                width: 100%;
+                height: 35px;
+                margin: 7px;
+                outline: 0;
+                border: none;
+                border-radius: 8px;
+                padding: 4px;
+                color: aliceblue;
+                background: rgb(22, 22, 22);
+            }
+            input:focus{
+                background: black;
+                transform: scale(1.2);
+            }
+            
+            .price input{
+                width: 15%;
+            }
+            #total{
+                border-radius: 4px;
+                padding:8px 2px ;
+               
+                background:  rgb(73, 3, 3);
+            }
+            #total::before{
+                content: 'Total:';
+            }
+
+
+            button{
+                width: 100%;
+                height: 35px;
+                margin: 5px 1px;
+                outline: none;
+                border: none;
+                border-radius: 20px;
+                color: rgb(181, 178, 178);
+                font-size: 15px;
+
+                background: linear-gradient(#4e143d,rgb(22, 22, 45));
+            }
+            button:hover{
+                background: rgb(51, 15, 42);
+                transform: scale(1.1);
+                color:rgb(185, 181, 181);
+                font-size: 20px;
+            }
+            
+            .searchby button{
+                width: 45%;
+                
+                
+               }
+            .searchby{
+
+                display: flex  ;
+                justify-content: space-between;
+            }
+            table{
+                width: 100%;
+                text-align: center;
+                margin: 10px 0;
+            }
+            th td{
+                padding: 2px;
+            }
+        </style>
+        
+    </head>
+    <body>
+       <div class="crud">
+        <div class="head">
+            <h2>CRUDS</h2>
+            <p>creat read update delete search</p>        </div>
+        <div class="input">
+            <input type="text" placeholder="title:" id="title">
+            <div class="price">
+                <input onkeyup="getprice()" type="number" placeholder="price:" id="price">
+                <input onkeyup="getprice()" type="number" placeholder="taxes:" id="taxes">
+                <input onkeyup="getprice()" type="number" placeholder="ads:" id="ads">
+                <input onkeyup="getprice()" type="number" placeholder="discount:" id="discount">
+                <small id="total">123</small>
+            </div>
+            <input type="number" placeholder="count:"id="count"   >
+            <input type="text" placeholder="catagory:"id="catagory"   >
+            <button  id="submit"  >create</button>
+        </div>
+        <div class="output">
+            <input onkeyup="searchBy(this.value)" type="text" id="search" placeholder="Search By Title:">
+            <div class="searchby">
+                <button onclick="searchData(this.id)" id="searchtitle">Search By Titlte</button>
+                <button onclick="searchData(this.id)" id="searchcatagory">Search By Catagory</button>
+            </div>
+            
+        </div>
+        <div  id="deleteall"></div>
+
+        <table id="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>TITLE</th>
+                    <th>PRICE</th>
+                    <th>TAXES</th>
+                    <th>ADS</th>
+                    <th>DISCOUNT</th>
+                    <th>TOTAL</th>
+                    <th>Catagory</th>
+                    <th>UPDATE</th>
+                    <th>DELETE</th>
+                </tr>
+
+            </thead>
+            
+            <tbody id="tbody">
+               
+                
+            </tbody>
+        </table>
+       </div>
+        
+        
+        
+        <script src="crud.js"> </script>
+
+    </body>
+</html>
